@@ -2,6 +2,20 @@
 include "php/conn.php";
 include "php/show2.php";
 ?>
+<?php
+session_start();
+$title=$_GET['title'];
+if(isset($_SESSION[$title]))
+	;
+else
+{
+	$liulan++;
+	$sqlin="update img set liulan =".$liulan." where title='".$title."'";
+	$rw = $pdo->exec($sqlin);
+	$_SESSION[$title]=1;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,9 +78,11 @@ location.href="show.php?title="+keywords;
 		</div>
 		<div>
 			<p class="title2"><?php echo $_GET['title'] ?></p>
+			
+			
 		</div>
 		<hr style="background-color:#f4f4f4;height:2px; width:80%"/ >
-		<div class="message">作者：<?php echo $author ?>  出版单位：<?php echo $press ?>  出版时间：<?php echo $date ?>
+		<div class="message">作者：<?php echo $author ?>  出版单位：<?php echo $press ?>  出版时间：<?php echo $date ?>    浏览量： <?php echo $liulan?>
 		</div>
 		<h6>&nbsp;</h6>
 		<div>

@@ -13,5 +13,6 @@ $sql = 'select * from img  where title="'.$title.'"';
 				$intro=$row['intro'];
 				$content=$row['content'];
 				$catalog=$row['catalog'];
+				$liulan=$row['liulan'];
 
 ?>

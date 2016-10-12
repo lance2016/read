@@ -8,13 +8,14 @@ include "../php/check_login.php";
 <div>
 <table  class="table table-hover mt20" style="text-align:center">
 	<tr>
-	<td>图片</td><td>题目</td><td>作者</td><td>顺序</td><td>删除</td><td>修改</td>
+	<td>图片</td><td>题目</td><td>作者</td><td>顺序</td><td>浏览量</td><td>删除</td><td>修改</td>
 	</tr>
 	<tr ng-repeat="x in datas" style="padding-top:25%">
 		<td ><img src="../{{x.src}}" width="60px" height="80px"></td>
 		<td style="line-height:80px" >{{x.title}}</td>
 		<td style="line-height:80px">{{x.author}}</td>
 		<td style="line-height:80px">{{x.shunxu}}</td>
+		<td style="line-height:80px">{{x.liulan}}</td>
 		<td style="line-height:80px;">
 			<a ng-click="DeleteBook(x.title,x.src)">删除</a>
 			<!-- <a href="php/edit.php?action=del&bookid={{x.bookid}}";>删除</a> -->
